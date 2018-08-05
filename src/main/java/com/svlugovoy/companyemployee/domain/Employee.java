@@ -24,10 +24,19 @@ public class Employee {
     @ManyToOne
     private Company company;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "EMPLOYEE_SKILL",
             joinColumns = @JoinColumn(name = "EMPLOYEE_ID"),
             inverseJoinColumns = @JoinColumn(name = "SKILL_ID")
     )
     private List<Skill> skills;
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", skills=" + skills +
+                '}';
+    }
 }

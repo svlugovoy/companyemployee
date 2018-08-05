@@ -17,6 +17,11 @@ public class Skill {
     @Column(name = "SKILL_NAME")
     private String skillName;
 
-    @ManyToMany(mappedBy = "skills")
+    @ManyToMany(mappedBy = "skills", fetch = FetchType.EAGER)
     private List<Employee> employees;
+
+    @Override
+    public String toString() {
+        return skillName;
+    }
 }

@@ -20,7 +20,15 @@ public class Company {
     @OneToOne(cascade = CascadeType.ALL)
     private CompanyContact companyContact;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.EAGER)
     List<Employee> employees;
 
+    @Override
+    public String toString() {
+        return "Company{" +
+                "id=" + id +
+                ", companyName='" + companyName + '\'' +
+                ", companyContact=" + companyContact +
+                '}';
+    }
 }

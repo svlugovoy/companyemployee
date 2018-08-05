@@ -20,8 +20,16 @@ public class CompanyContact {
     @Column(name = "WWW")
     private String www;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Company company;
 
-
+    @Override
+    public String toString() {
+        return "CompanyContact{" +
+                "id=" + id +
+                ", city='" + city + '\'' +
+                ", country='" + country + '\'' +
+                ", www='" + www + '\'' +
+                '}';
+    }
 }
